@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="Lab8_9.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:database="using:Lab8_9.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView x:Name="listView" Height="276" Margin="331,96,100,0" VerticalAlignment="Top" SelectionChanged="listView_SelectionChanged" BorderBrush="Black" BorderThickness="1">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="ID" TextAlignment="Center" Margin="8,0" Width="50" />
+                        <TextBlock Text="Ім'я" TextAlignment="Center" Width="100"/>
+                        <TextBlock Text="Число кінцівок" TextAlignment="Center" Width="200" />
+                        <TextBlock Text="Опис тварини" TextAlignment="Center" Width="700"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="database:Animal">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock 
+                    Text="{x:Bind Id}"
+                    Width="50" TextAlignment="Center" />
+                        <TextBlock 
+                    Text="{x:Bind Name}"
+                    Width="100" TextAlignment="Center" />
+                        <TextBlock Text="{x:Bind LimbCount}"
+                   Width="200" TextAlignment="Center" />
+                        <TextBlock Text="{x:Bind Description}"
+                   Width="200" TextAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="bDelete" Content="Видалити" Margin="617,52,0,0" VerticalAlignment="Top" Click="bDelete_Click" Height="39" Width="310"/>
+        <Button x:Name="bAdd" Content="Додати" Margin="331,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.065,-0.164" Click="bAdd_Click" Width="281" Height="39"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="128,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164"/>
+        <TextBlock x:Name="PK" HorizontalAlignment="Left" Margin="22,102,0,0" TextWrapping="Wrap" Text="Ім'я" VerticalAlignment="Top" RenderTransformOrigin="0.66,1.058"/>
+        <TextBox x:Name="textBoxLimbCount" HorizontalAlignment="Left" Margin="128,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="164"/>
+        <TextBlock x:Name="UZ" HorizontalAlignment="Left" Margin="22,148,0,0" TextWrapping="Wrap" Text="Число кінцівок" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxDescription" HorizontalAlignment="Left" Margin="128,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164" Height="182"/>
+        <TextBlock x:Name="PC" HorizontalAlignment="Left" Margin="22,357,0,0" TextWrapping="Wrap" Text="Опис" VerticalAlignment="Top" RenderTransformOrigin="0.485,0.526"/>
+    </Grid>
+</Page>
